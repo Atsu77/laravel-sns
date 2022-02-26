@@ -1,0 +1,49 @@
+Table users {
+  id int [pk]
+  name varchar
+  email varchar
+  password varchar
+  remember_token varchar
+  created_at datetime
+  updated_at datetime
+}
+
+Table articles {
+  id int [pk]
+  title varchar
+  body text
+  user_id int [ref: > users.id]
+  created_at datetime
+  updated_at datetime
+}
+
+Table likes {
+  id int [pk]
+  user_id int [ref: > users.id]
+  article_id int [ref: > articles.id]
+  created_at datetime
+  updated_at datetime
+}
+
+Table follows {
+  id int [pk]
+  follower_id int [ref: > users.id]
+  followee_id int [ref: > users.id]
+  created_at datetime
+  updated_at datetime
+}
+
+Table article_tag {
+  id int [pk]
+  article_id int [ref: > articles.id]
+  tag_id int [ref: > tags.id]
+  created_at datetime
+  updated_at datetime
+}
+
+Table tags {
+  id int [pk]
+  name varchar
+  created_at datetime
+  updated_at datetime
+}
