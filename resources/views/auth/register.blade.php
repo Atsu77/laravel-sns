@@ -14,6 +14,9 @@
           <div class="h2 card-title text-center mt-2">
             ユーザー登録
           </div>
+
+          @include('error_card_list')
+
           <div class="card-text">
             <form action="{{ route('register') }}" method="post">
               @csrf
